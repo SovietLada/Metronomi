@@ -1,0 +1,1 @@
+Metronomi-sovellus toteuttaa digitaalisesti sen, mitä mekaaninen metronomi tekee heilurin kanssa. Tämän lisäksi Metronomi.jar tulee sisältämään tahtilajin määrittelyn. Käyttöliittymä toteutetaan yhteen näkymään, ja se koostuu tarvittavista napeista (on/off, +, -, jne.) ja säätimistä. Ohjelmaan toteutetaan viisi luokkaa toiminnallisuutta varten, sekä kaksi äänitiedostoa.
