@@ -15,8 +15,8 @@ import javax.swing.SwingUtilities;
 
 public class Main {
 
-    public static void main(String[] args) {
-        UserInterface a = new UserInterface(new Metronome());
-        SwingUtilities.invokeLater(a);
-    }
+  public static void main(String[] args) {
+    UserInterface a = new UserInterface(new Metronome());
+    SwingUtilities.invokeLater(a);
+  }
 }

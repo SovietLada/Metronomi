@@ -8,38 +8,37 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 // @author Leevi
-
 public class RodTest {
 
-    Metronome metronome;
+  Metronome metronome;
 
-    public RodTest() {
-        metronome = new Metronome();
-    }
+  public RodTest() {
+    metronome = new Metronome();
+  }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
+  @BeforeClass
+  public static void setUpClass() {
+  }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
+  @AfterClass
+  public static void tearDownClass() {
+  }
 
-    @Before
-    public void setUp() {
-    }
+  @Before
+  public void setUp() {
+  }
 
-    @After
-    public void tearDown() {
-    }
+  @After
+  public void tearDown() {
+  }
 
-    @Test
-    public void testRod1() {
-        assertEquals("Click!", metronome.getRod().click());
-    }
-    
-     @Test
-    public void testRod2() {
-        assertEquals("Accent!", metronome.getRod().accent());
-    }
-}   
+  @Test
+  public void testRod1() {
+    assertEquals("Click!", metronome.getRod().click());
+  }
+
+  @Test
+  public void testRod2() {
+    assertEquals("Accent!", metronome.getRod().accent());
+  }
+}

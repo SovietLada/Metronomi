@@ -23,59 +23,59 @@ import javax.swing.WindowConstants;
 
 public class UserInterface implements Runnable {
 
-    private JFrame frame;
-    private final JTextField displayTempo;
-    private final Metronome metronome;
-    private final KeyboardListener controller;
+  private JFrame frame;
+  private final JTextField displayTempo;
+  private final Metronome metronome;
+  private final KeyboardListener controller;
 
-    public UserInterface(Metronome metronome) {
-        this.metronome = metronome;
-        this.displayTempo = new JTextField("Current tempo: " + metronome.getBpm() + " BPM");
-        this.controller = new KeyboardListener(displayTempo, metronome);
-    }
+  public UserInterface(Metronome metronome) {
+    this.metronome = metronome;
+    this.displayTempo = new JTextField("Current tempo: " + metronome.getBpm() + " BPM");
+    this.controller = new KeyboardListener(displayTempo, metronome);
+  }
 
-    @Override
-    public void run() {
-        frame = new JFrame("Digital Metronome");
-        frame.setPreferredSize(new Dimension(300, 300));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  @Override
+  public void run() {
+    frame = new JFrame("Digital Metronome");
+    frame.setPreferredSize(new Dimension(300, 300));
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        addComponents(frame.getContentPane());
+    addComponents(frame.getContentPane());
 
-        frame.pack();
-        frame.setVisible(true);
-    }
+    frame.pack();
+    frame.setVisible(true);
+  }
 
-    private void addComponents(Container container) {
-        displayTempo.setPreferredSize(new Dimension(300, 50));
-        displayTempo.setEnabled(false);
-        container.add(displayTempo, BorderLayout.NORTH);
+  private void addComponents(Container container) {
+    displayTempo.setPreferredSize(new Dimension(300, 50));
+    displayTempo.setEnabled(false);
+    container.add(displayTempo, BorderLayout.NORTH);
 
-        JPanel buttons = new JPanel(new GridLayout(3, 1));
+    JPanel buttons = new JPanel(new GridLayout(3, 1));
 
-        JButton onoff = new JButton("on/off");
-        onoff.addActionListener(controller);
-        onoff.setActionCommand("onoff");
-        buttons.add(onoff);
+    JButton onoff = new JButton("on/off");
+    onoff.addActionListener(controller);
+    onoff.setActionCommand("onoff");
+    buttons.add(onoff);
 
-        JButton faster = new JButton("+");
-        faster.addActionListener(controller);
-        faster.setActionCommand("faster");
-        buttons.add(faster);
+    JButton faster = new JButton("+");
+    faster.addActionListener(controller);
+    faster.setActionCommand("faster");
+    buttons.add(faster);
 
-        JButton slower = new JButton("-");
-        slower.addActionListener(controller);
-        slower.setActionCommand("slower");
-        buttons.add(slower);
+    JButton slower = new JButton("-");
+    slower.addActionListener(controller);
+    slower.setActionCommand("slower");
+    buttons.add(slower);
 
-        container.add(buttons);
-    }
+    container.add(buttons);
+  }
 
-    public JFrame getFrame() {
-        return frame;
-    }
+  public JFrame getFrame() {
+    return frame;
+  }
 
-    public Metronome getMetronome() {
-        return metronome;
-    }
+  public Metronome getMetronome() {
+    return metronome;
+  }
 }
