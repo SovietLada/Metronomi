@@ -14,3 +14,6 @@ Parantelin dokumentaatiota ja ohjelman kansiorakennetta.
 
 25.1
 Pit ja cobertura conffattu, sekä aksenttiääni lisätty ohjelman toiminnallisuuteen. Parantelin myös testiluokkia logiikan osalta.
+
+3.2
+Lisätty viive on/off-nappiin toiminnallisuuden parantamiseksi & cobertura ja pit konffattu kuntoon.
