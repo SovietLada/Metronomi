@@ -25,6 +25,10 @@ public class KeyboardListener implements KeyListener, ActionListener {
         this.metronome = metronome;
         this.textField = textField;
     }
+    
+    public Metronome getMetronome() {
+        return metronome;
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -42,6 +46,7 @@ public class KeyboardListener implements KeyListener, ActionListener {
     }
 
     @Override
+    @SuppressWarnings("ConvertToStringSwitch")
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("onoff")) {
             if (metronome.isRunning() && metronome.canStop()) {
@@ -63,8 +68,7 @@ public class KeyboardListener implements KeyListener, ActionListener {
         }
         else if (e.getActionCommand().equals("faster")) {
             if (metronome.getBpm() < 180) {
-                metronome.setBpm(metronome.getBpm() + Metronome.tempoStep);
-                textField.setText("Current tempo: " + metronome.getBpm() + " BPM");
+                incrementTempo();
             }
         }
         else if (e.getActionCommand().equals("slower")) {
@@ -73,5 +77,10 @@ public class KeyboardListener implements KeyListener, ActionListener {
                 textField.setText("Current tempo: " + metronome.getBpm() + " BPM");
             }
         }
+    }
+    
+    public void incrementTempo() {
+        metronome.setBpm(metronome.getBpm() + Metronome.tempoStep);
+        textField.setText("Current tempo: " + metronome.getBpm() + " BPM");
     }
 }
