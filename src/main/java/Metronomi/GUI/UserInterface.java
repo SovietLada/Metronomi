@@ -14,6 +14,7 @@ import Metronomi.Logic.Metronome;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -69,6 +70,30 @@ public class UserInterface implements Runnable {
     buttons.add(slower);
 
     container.add(buttons);
+    
+    JPanel signatures = new JPanel(new GridLayout(4, 1));
+    
+    JButton threeQuarters = new JButton("3/4");
+    threeQuarters.addActionListener(controller);
+    threeQuarters.setActionCommand("3/4");
+    signatures.add(threeQuarters);
+    
+    JButton fourQuarters = new JButton("4/4");
+    fourQuarters.addActionListener(controller);
+    fourQuarters.setActionCommand("4/4");
+    signatures.add(fourQuarters);
+    
+    JButton fiveQuarters = new JButton("5/4");
+    fiveQuarters.addActionListener(controller);
+    fiveQuarters.setActionCommand("5/4");
+    signatures.add(fiveQuarters);
+    
+    JButton sevenQuarters = new JButton("7/4");
+    sevenQuarters.addActionListener(controller);
+    sevenQuarters.setActionCommand("7/4");
+    signatures.add(sevenQuarters);
+    
+    container.add(signatures, BorderLayout.EAST);
   }
 
   public JFrame getFrame() {
