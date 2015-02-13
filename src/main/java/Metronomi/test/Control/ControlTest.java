@@ -2,25 +2,29 @@ package Metronomi.test.Control;
 
 import Metronomi.Control.KeyboardListener;
 import Metronomi.Logic.Metronome;
-import java.awt.event.ActionEvent;
-import static junit.runner.Version.id;
+import javax.swing.JTextField;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-// @author Leevi
+/**
+ * ControlTest tests Control package.
+ * 
+ * @author Leevi
+ */
 public class ControlTest {
 
+  JTextField field;
   Metronome metronome;
   KeyboardListener listener;
 
   public ControlTest() {
+    field = new JTextField("");
     metronome = new Metronome();
-    listener = new KeyboardListener(null, metronome);
+    listener = new KeyboardListener(field, metronome);
   }
 
   @BeforeClass
@@ -41,7 +45,61 @@ public class ControlTest {
 
   @Test
   public void testInitialState() {
-      assertEquals(listener.getMetronome() != null, true);
-      assertEquals(listener.getMetronome().getBpm() == 80, true);
+    assertEquals(true, listener.getMetronome() != null);
+    assertEquals(true, listener.getMetronome().getBpm() == 100);
+  }
+  
+  @Test
+  public void testRod() {
+    assertEquals(true, listener.getMetronome().getRod() != null);
+  }
+  
+  @Test
+  public void testTempo1() {
+    listener.incrementTempo();
+    assertEquals(true, listener.getMetronome().getBpm() > 100);
+  }
+  
+  @Test
+  public void testTempo2() {
+    listener.decrementTempo();
+    listener.decrementTempo();
+    assertEquals(true, listener.getMetronome().getBpm() < 100);
+  }
+  
+  @Test
+  public void testTempo3() {
+    int a = listener.getMetronome().getBpm();
+    for (int i = 0; i < 10; ++i) {
+      listener.incrementTempo();
+    }
+    for (int i = 0; i < 10; ++i) {
+      listener.decrementTempo();
+    }
+    assertEquals(true, listener.getMetronome().getBpm() == a);
+  }
+  
+  @Test
+  public void testStarting() {
+    listener.startMetronome();
+    try {
+      Thread.sleep(3000);
+      assertEquals(true, listener.getMetronome().isRunning());
+    }
+    catch (InterruptedException e) {
+      System.err.println(e);
+    }
+  }
+  
+  @Test 
+  public void testStopping() {
+    listener.stopMetronome();
+    try {
+      Thread.sleep(3000);
+      assertEquals(false, listener.getMetronome().isRunning());
+    }
+    catch (InterruptedException e) {
+      System.err.println(e);
+    }
   }
 }

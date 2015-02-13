@@ -17,3 +17,6 @@ Pit ja cobertura conffattu, sekä aksenttiääni lisätty ohjelman toiminnallisu
 
 3.2
 Lisätty viive on/off-nappiin toiminnallisuuden parantamiseksi & cobertura ja pit konffattu kuntoon.
+
+13.2
+Javadoc päivitetty, testejä lisätty ja tahtilajit toteutettu käyttöliittymään ja logiikkaan.

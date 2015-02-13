@@ -6,7 +6,8 @@
 package Metronomi.Metronomi;
 
 /**
- *
+ * Project's main class.
+ * 
  * @author Leevi
  */
 import Metronomi.GUI.UserInterface;

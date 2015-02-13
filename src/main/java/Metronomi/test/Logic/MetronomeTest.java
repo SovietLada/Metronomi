@@ -8,7 +8,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-// @author Leevi
+/**
+ * MetronomeTest tests Metronome's content.
+ * 
+ * @author Leevi
+ */
 public class MetronomeTest {
 
   Metronome metronome;
@@ -53,7 +57,7 @@ public class MetronomeTest {
 
   @Test
   public void testInitialDelay() {
-    long a = 750;
+    long a = 600;
     assertEquals(a, metronome.getDelay());
   }
 

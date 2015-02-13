@@ -5,16 +5,12 @@
  */
 package Metronomi.GUI;
 
-/**
- *
- * @author Leevi
- */
 import Metronomi.Control.KeyboardListener;
 import Metronomi.Logic.Metronome;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +18,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+/**
+ * UserInterface creates the program's UI and links the buttons with control
+ * component.
+ * 
+ * @author Leevi
+ * 
+ * @see Metronomi.Control.KeyboardListener
+ */
 public class UserInterface implements Runnable {
 
   private JFrame frame;
@@ -29,16 +33,24 @@ public class UserInterface implements Runnable {
   private final Metronome metronome;
   private final KeyboardListener controller;
 
+  /**
+   *
+   * @param metronome
+   */
   public UserInterface(Metronome metronome) {
     this.metronome = metronome;
     this.displayTempo = new JTextField("Current tempo: " + metronome.getBpm() + " BPM");
+    this.displayTempo.setDisabledTextColor(Color.black);
     this.controller = new KeyboardListener(displayTempo, metronome);
   }
 
+  /**
+   * run creates buttons & labels, and adds them to the UI frame.
+   */
   @Override
   public void run() {
     frame = new JFrame("Digital Metronome");
-    frame.setPreferredSize(new Dimension(300, 300));
+    frame.setPreferredSize(new Dimension(340, 340));
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     addComponents(frame.getContentPane());
@@ -48,7 +60,7 @@ public class UserInterface implements Runnable {
   }
 
   private void addComponents(Container container) {
-    displayTempo.setPreferredSize(new Dimension(300, 50));
+    displayTempo.setPreferredSize(new Dimension(340, 60));
     displayTempo.setEnabled(false);
     container.add(displayTempo, BorderLayout.NORTH);
 
@@ -70,36 +82,44 @@ public class UserInterface implements Runnable {
     buttons.add(slower);
 
     container.add(buttons);
-    
+
     JPanel signatures = new JPanel(new GridLayout(4, 1));
-    
+
     JButton threeQuarters = new JButton("3/4");
     threeQuarters.addActionListener(controller);
     threeQuarters.setActionCommand("3/4");
     signatures.add(threeQuarters);
-    
+
     JButton fourQuarters = new JButton("4/4");
     fourQuarters.addActionListener(controller);
     fourQuarters.setActionCommand("4/4");
     signatures.add(fourQuarters);
-    
+
     JButton fiveQuarters = new JButton("5/4");
     fiveQuarters.addActionListener(controller);
     fiveQuarters.setActionCommand("5/4");
     signatures.add(fiveQuarters);
-    
+
     JButton sevenQuarters = new JButton("7/4");
     sevenQuarters.addActionListener(controller);
     sevenQuarters.setActionCommand("7/4");
     signatures.add(sevenQuarters);
-    
+
     container.add(signatures, BorderLayout.EAST);
   }
 
+  /**
+   *
+   * @return frame
+   */
   public JFrame getFrame() {
     return frame;
   }
 
+  /**
+   *
+   * @return metronome
+   */
   public Metronome getMetronome() {
     return metronome;
   }
