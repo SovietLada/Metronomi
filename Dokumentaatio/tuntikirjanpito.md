@@ -20,3 +20,6 @@ Lisätty viive on/off-nappiin toiminnallisuuden parantamiseksi & cobertura ja pi
 
 13.2
 Javadoc päivitetty, testejä lisätty ja tahtilajit toteutettu käyttöliittymään ja logiikkaan.
+
+27.2
+Lisätty kahdeksasosamuunnin-toiminnallisuus.
