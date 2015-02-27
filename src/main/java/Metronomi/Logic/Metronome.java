@@ -18,6 +18,7 @@ public class Metronome {
   private int bpm;
   private long delay;
   private boolean isRunning;
+  private boolean isEightified = false;
 
   /**
    * canStop removes a UI bug that confuses the beat timing.
@@ -147,8 +148,14 @@ public class Metronome {
       quarters = 1;
     }
     try {
-      Thread.sleep(delay);
-      canStop = true;
+      if (isEightified) {
+        Thread.sleep(delay / 2);
+        canStop = true;
+      }
+      else {
+        Thread.sleep(delay);
+        canStop = true;
+      }
     }
     catch (InterruptedException e) {
       System.err.println(e);
@@ -231,5 +238,14 @@ public class Metronome {
    */
   public void denyStarting() {
     canStart = false;
+  }
+  
+  public void eightify() {
+    if (isEightified) {
+      isEightified = false;
+    }
+    else {
+      isEightified = true;
+    }
   }
 }

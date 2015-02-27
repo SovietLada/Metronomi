@@ -64,7 +64,7 @@ public class UserInterface implements Runnable {
     displayTempo.setEnabled(false);
     container.add(displayTempo, BorderLayout.NORTH);
 
-    JPanel buttons = new JPanel(new GridLayout(3, 1));
+    JPanel buttons = new JPanel(new GridLayout(4, 1));
 
     JButton onoff = new JButton("on/off");
     onoff.addActionListener(controller);
@@ -80,6 +80,11 @@ public class UserInterface implements Runnable {
     slower.addActionListener(controller);
     slower.setActionCommand("slower");
     buttons.add(slower);
+    
+    JButton eightify = new JButton("1/4 -> 1/8");
+    eightify.addActionListener(controller);
+    eightify.setActionCommand("eightify");
+    buttons.add(eightify);
 
     container.add(buttons);
 

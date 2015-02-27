@@ -86,6 +86,9 @@ public class KeyboardListener implements KeyListener, ActionListener {
         decrementTempo();
       }
     }
+    else if (e.getActionCommand().equals("eightify")) {
+      metronome.eightify();
+    }
     else if (e.getActionCommand().equals("3/4")) {
       metronome.changeSignature(SignaturesEnum.threeQuarters);
     }
